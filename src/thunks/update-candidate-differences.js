@@ -6,6 +6,9 @@ export const updateCandidateDifferences = () => (dispatch, getState) => {
   const updatedCandidates = candidates.map(candidate => {
     const { candidateBudget } = candidate;
     const differenceFromUser = ALL_CATEGORIES.reduce((total, category) => {
+      if (!candidateBudget[category] || !userBudgetProposal[category]) {
+        console.error(`no ${category}`);
+      }
       const categoryDifference = Math.abs(
         candidateBudget[category] - userBudgetProposal[category]
       );

@@ -9,7 +9,7 @@ const setPreference = payload => ({
 export const updatePreferences = (propertyName, propertyValue) => {
   return async (dispatch, getState) => {
     // update the user preferences
-    dispatch(
+    await dispatch(
       setPreference({
         propertyName,
         propertyValue

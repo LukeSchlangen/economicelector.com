@@ -1,13 +1,8 @@
-import { ALL_CATEGORIES } from "../constants/budget-categories";
 import { SET_PREFERENCE } from "../constants/action-types";
-
-const defaultUserBudgetProposal = ALL_CATEGORIES.reduce(
-  (defaultBudget, categoryName) => ({ ...defaultBudget, [categoryName]: 0 }),
-  {}
-);
+import { currentBudget } from "../constants/current-budget";
 
 export const userBudgetProposal = (
-  state = defaultUserBudgetProposal,
+  state = currentBudget,
   { type, payload }
 ) => {
   switch (type) {
